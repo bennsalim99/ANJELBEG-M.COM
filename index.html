@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjel Begüm Estetik ve Güzellik</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Siyah arka plan */
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6347; /* Koyu turuncu */
+        }
+
+        .start-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background-color: #ff6347; /* Koyu turuncu */
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff4500;
+        }
+
+        .services {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .service-btn {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .service-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff4500;
+        }
+
+        .service-description {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .gallery {
+            display: none;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .gallery img {
+            width: 200px;
+            margin: 10px;
+        }
+
+        .gallery-btn {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .gallery-btn:hover {
+            transform: scale(1.1);
+            background-color: #ff4500;
+        }
+    </style>
+    <script>
+        function showServices() {
+            document.querySelector('.services').style.display = 'block';
+            document.querySelector('.start-btn').style.display = 'none';
+        }
+
+        function showDescription(service) {
+            const descriptions = {
+                'Cilt Bakımı': 'Cildinizi derinlemesine temizleyerek daha sağlıklı ve canlı bir görünüm kazandırır.',
+                'Lazer Epilasyon': 'Kalıcı tüylerden kurtulmanın en etkili ve acısız yöntemidir.',
+                'Botoks': 'Kırışıklıkların giderilmesinde ve genç bir görünüm elde edilmesinde kullanılır.',
+                'Dolgu': 'Yüz hatlarını belirginleştirip hacim kazandırmak için uygulanır.',
+                'Masaj Terapisi': 'Vücudu rahatlatır ve stresi azaltmaya yardımcı olur.',
+                'Saç Bakımı': 'Saçlarınızı besler, güçlendirir ve doğal parlaklık kazandırır.'
+            };
+
+            // Tüm açıklama ve galeri kısımlarını gizle
+            document.querySelectorAll('.service-description').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.gallery').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.gallery-btn').forEach(el => el.style.display = 'none');
+
+            // İlgili hizmetin açıklamasını göster
+            document.getElementById(service + '-description').style.display = 'block';
+            document.getElementById(service + '-gallery-btn').style.display = 'block';
+        }
+
+        function showGallery(service) {
+            // Diğer galerileri kapat
+            document.querySelectorAll('.gallery').forEach(el => el.style.display = 'none');
+            
+            // Seçilen hizmetin galerisini göster
+            document.getElementById(service + '-gallery').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Anjel Begüm Estetik ve Güzellik</h1>
+    </header>
+
+    <button class="start-btn" onclick="showServices()">Siteye Başla</button>
+
+    <div class="services">
+        <h2>Hizmetlerimiz</h2>
+        <button class="service-btn" onclick="showDescription('Cilt Bakımı')">Cilt Bakımı</button>
+        <button class="service-btn" onclick="showDescription('Lazer Epilasyon')">Lazer Epilasyon</button>
+        <button class="service-btn" onclick="showDescription('Botoks')">Botoks</button>
+        <button class="service-btn" onclick="showDescription('Dolgu')">Dolgu</button>
+        <button class="service-btn" onclick="showDescription('Masaj Terapisi')">Masaj Terapisi</button>
+        <button class="service-btn" onclick="showDescription('Saç Bakımı')">Saç Bakımı</button>
+
+        <!-- Hizmet açıklamaları ve galerileri -->
+        <div id="Cilt Bakımı-description" class="service-description">Cilt Bakımı: Cildinizi derinlemesine temizleyerek daha sağlıklı ve canlı bir görünüm kazandırır.</div>
+        <button id="Cilt Bakımı-gallery-btn" class="gallery-btn" onclick="showGallery('Cilt Bakımı')">Galeriyi Göster</button>
+
+        <div id="Lazer Epilasyon-description" class="service-description">Lazer Epilasyon: Kalıcı tüylerden kurtulmanın en etkili ve acısız yöntemidir.</div>
+        <button id="Lazer Epilasyon-gallery-btn" class="gallery-btn" onclick="showGallery('Lazer Epilasyon')">Galeriyi Göster</button>
+
+        <div id="Botoks-description" class="service-description">Botoks: Kırışıklıkların giderilmesinde ve genç bir görünüm elde edilmesinde kullanılır.</div>
+        <button id="Botoks-gallery-btn" class="gallery-btn" onclick="showGallery('Botoks')">Galeriyi Göster</button>
+
+        <div id="Dolgu-description" class="service-description">Dolgu: Yüz hatlarını belirginleştirip hacim kazandırmak için uygulanır.</div>
+        <button id="Dolgu-gallery-btn" class="gallery-btn" onclick="showGallery('Dolgu')">Galeriyi Göster</button>
+
+        <div id="Masaj Terapisi-description" class="service-description">Masaj Terapisi: Vücudu rahatlatır ve stresi azaltmaya yardımcı olur.</div>
+        <button id="Masaj Terapisi-gallery-btn" class="gallery-btn" onclick="showGallery('Masaj Terapisi')">Galeriyi Göster</button>
+
+        <div id="Saç Bakımı-description" class="service-description">Saç Bakımı: Saçlarınızı besler, güçlendirir ve doğal parlaklık kazandırır.</div>
+        <button id="Saç Bakımı-gallery-btn" class="gallery-btn" onclick="showGallery('Saç Bakımı')">Galeriyi Göster</button>
+    </div>
+
+    <!-- Galeriler -->
+    <div id="Cilt Bakımı-gallery" class="gallery">
+        <h2>Cilt Bakımı Galerisi</h2>
+        <img src="https://i.ibb.co/0hKdx3w/guzellik-merkezleri.png" alt="guzellik-merkezleri" width="200" height="200">
+    </div>
+
+    <div id="Lazer Epilasyon-gallery" class="gallery">
+        <h2>Lazer Epilasyon Galerisi</h2>
+        <img src="https://via.placeholder.com/200" alt="Lazer Epilasyon Resim 1">
+        <img src="https://via.placeholder.com/200" alt="Lazer Epilasyon Resim 2">
+    </div>
+
+    <div id="Botoks-gallery" class="gallery">
+        <h2>Botoks Galerisi</h2>
+        <img src="https://via.placeholder.com/200" alt="Botoks Resim 1">
+        <img src="https://via.placeholder.com/200" alt="Botoks Resim 2">
+    </div>
+
+    <div id="Dolgu-gallery" class="gallery">
+        <h2>Dolgu Galerisi</h2>
+        <img src="https://via.placeholder.com/200" alt="Dolgu Resim 1">
+        <img src="https://via.placeholder.com/200" alt="Dolgu Resim 2">
+    </div>
+
+    <div id="Mas
